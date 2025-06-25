@@ -1,5 +1,6 @@
 import React from "react"
 import ReactDOM from "react-dom/client"
+import "./index.css"
 
 const pizzaData = [
   {
@@ -48,35 +49,61 @@ const pizzaData = [
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Header />
-      <Pizza />
-      <Pizza />
-      <Pizza />
-      <Foter />
+      <Menu />
+      <Footer />
     </div>
   )
 }  
 
 function Header() {
-  return <h1>Fast Pizza co.</h1>
-}
-
-function Margheritaenu() {}
-
-function Foter() {
-  return <footer> {new Date().toLocaleTimeString()}. We,re currently open</footer>
-}
-
-
-function Pizza(){
   return (
-    <div>
-      <img src="pizzas/spinaci.jpg" alt="Pizza Spinaci" />
-      <h2>Pizza Spinaci</h2>
-      <p>Tomato, mozarella, spinach, and ricotta cheese</p>
+  <header className="header">
+    <h1>Fast Pizza co.</h1>
+  </header>
+  )
+}
+
+function Menu() {
+  return <main className="menu">
+    <h2>Our Menu</h2>
+    <Pizza 
+    name="Pizza Spinaci"
+    ingredients="Tomato, mozarella, spinach, and ricotta cheese"
+    photoName="pizzas/spinaci.jpg"
+    price={12}
+    />
+
+    <Pizza 
+    name="Pizza funghi"
+    ingredients="Tomato and mushrooms"
+    photoName="pizzas/funghi.jpg"
+    price={10}
+    />
+  </main>
+}
+
+function Pizza(props){
+  return (
+    <div className="pizza">
+      <img src={props.photoName} alt={props.name} />
+      <div>
+        <h3>{props.name}</h3>
+        <p>{props.ingredients}</p>
+      </div>
     </div>
   )
+}
+
+function Footer() {
+  const hour  = new Date().getHours();
+  const openHour = 12; 
+  const closeHour = 22;
+  const isOpen = hour >= openHour && hour <= closeHour;
+  // if(hour >= openHour && hour < closeHour);
+  // else alert("Sorry, we're closed");
+  return <footer className="footer"> {new Date().toLocaleTimeString()}. We,re currently open</footer>
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
