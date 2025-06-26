@@ -95,10 +95,18 @@ function Footer() {
   const openHour = 12; 
   const closeHour = 22;
   const isOpen = hour >= openHour && hour <= closeHour;
-  console.log(isOpen)
-  return <footer className="footer">
-    {new Date().toLocaleTimeString()}. We,re currently open.
+  console.log(isOpen
+
+  )
+  return (
+  <footer className="footer">
+    {isOpen && (
+      <p>
+        We're open untill {closeHour}:00. Come visit us or order online...
+      </p>
+    )}
   </footer>
+  );
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
