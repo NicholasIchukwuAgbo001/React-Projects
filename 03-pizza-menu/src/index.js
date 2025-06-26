@@ -69,7 +69,7 @@ function Menu() {
   return <main className="menu">
     <h2>Our Menu</h2>
 
-    <ul>
+    <ul class="pizzas">
       {pizzaData.map((pizza => (
         <Pizza pizzaObj = {pizza}/>
       )))}
