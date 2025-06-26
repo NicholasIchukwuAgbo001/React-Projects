@@ -98,7 +98,7 @@ function Pizza(props){
       <div>
         <h3>{props.pizzaObj.name}</h3>
         <p>{props.pizzaObj.ingredients}</p>
-        <span>{props.pizzaObj.price + 208}</span>
+        <span>{props.pizzaObj.price}</span>
       </div>
     </div>
   )
