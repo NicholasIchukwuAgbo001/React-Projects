@@ -80,7 +80,7 @@ function Menu() {
       To create a production build.
     </p>
 
-    <ul class="pizzas">
+    <ul className="pizzas">
       {pizzaData.map((pizza) => (
         <Pizza pizzaObj = {pizza}/>
       ))}
@@ -129,11 +129,11 @@ function Footer() {
 
 function Order({closeHour, openHour}) {
   return (
-    <div class="order">
+    <div className="order">
       <p>
         We're open from {openHour}:00 untill {closeHour}:00. Come visit us or order online...
       </p>
-      <button class="btn">Order</button>
+      <button className="btn">Order</button>
     </div>
   )
 }
