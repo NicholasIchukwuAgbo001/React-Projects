@@ -25,7 +25,8 @@ function Counter() {
       </div>
 
       <p>
-        {date.toLocaleDateString()}
+        
+        <span>{date.toLocaleDateString()}</span>
       </p>
     </div>
   );
