@@ -72,17 +72,20 @@ function Menu() {
     <main className="menu">
     <h2>Our Menu</h2>
 
+   {numPizzas > 0 ? (
+
+   <>
     <p>
       Note that the development build is not optimized.
       To create a production build.
     </p>
 
-   {numPizzas > 0 ? (
     <ul class="pizzas">
       {pizzaData.map((pizza) => (
         <Pizza pizzaObj = {pizza}/>
       ))}
     </ul>
+   </>
    ) : (
     <p>We're still working on our menu. please come back later..</p>
    )}
@@ -92,12 +95,12 @@ function Menu() {
 
 function Pizza({pizzaObj}){
   return (
-    <li className="pizza">
+    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
       <img src={pizzaObj.photoName} alt={pizzaObj.name} />
       <div>
         <h3>{pizzaObj.name}</h3>
         <p>{pizzaObj.ingredients}</p>
-        <span>{pizzaObj.price}</span>
+        <span>{pizzaObj.soldOut ? "SOLD-OUT" : pizzaObj.price}</span>
       </div>
     </li>
   )
