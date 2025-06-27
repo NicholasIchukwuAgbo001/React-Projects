@@ -66,15 +66,28 @@ function Header() {
 }
 
 function Menu() {
-  return <main className="menu">
+  const numPizzas = pizzaData.length;
+  
+  return (
+    <main className="menu">
     <h2>Our Menu</h2>
 
+    <p>
+      Note that the development build is not optimized.
+      To create a production build.
+    </p>
+
+   {numPizzas > 0 ? (
     <ul class="pizzas">
-      {pizzaData.map((pizza => (
+      {pizzaData.map((pizza) => (
         <Pizza pizzaObj = {pizza}/>
-      )))}
+      ))}
     </ul>
+   ) : (
+    <p>We're still working on our menu. please come back later..</p>
+   )}
   </main>
+  )
 }
 
 function Pizza({pizzaObj}){
@@ -92,8 +105,8 @@ function Pizza({pizzaObj}){
 
 function Footer() {
   const hour  = new Date().getHours();
-  const openHour = 12; 
-  const closeHour = 22;
+  const openHour = 8; 
+  const closeHour = 20;
   const isOpen = hour >= openHour && hour <= closeHour;
   console.log(isOpen
 
@@ -101,7 +114,7 @@ function Footer() {
   return (
   <footer className="footer">
     {isOpen ? (
-      <Order closeHour = {closeHour} />
+      <Order closeHour={closeHour}  openHour={openHour}/>
     ) : (
       <p>
         We're closed. Come back tomorrow!
@@ -111,11 +124,11 @@ function Footer() {
   );
 }
 
-function Order({closeHour}) {
+function Order({closeHour, openHour}) {
   return (
     <div class="order">
       <p>
-        We're open untill {closeHour}:00. Come visit us or order online...
+        We're open from {openHour}:00 untill {closeHour}:00. Come visit us or order online...
       </p>
       <button class="btn">Order</button>
     </div>
