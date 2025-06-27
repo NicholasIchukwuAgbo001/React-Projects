@@ -12,7 +12,6 @@ export default function App() {
 
 function Counter() {
   const [count, setCount] = useState(0);
-  const [step, setStep] = useState(1);
 
   const date = new Date("June 21, 2027");
   date.setDate(date.getDate() + count);
