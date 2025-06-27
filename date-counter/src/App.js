@@ -23,6 +23,10 @@ function Counter() {
         <span>Count: {count}</span>
         <button onClick={()=> setCount((counter) => counter + 1)}>+</button>
       </div>
+
+      <p>
+        {date.toLocaleDateString()}
+      </p>
     </div>
   );
 }
