@@ -1,18 +1,20 @@
-function MenuItem({ pizza }) {
-  const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./ui/Home";
+import Menu from "./features/menu/Menu";
+import Cart from "./features/cart/Cart";
+import CreateOrder from "./features/order/CreateOrder"; 
+import Order from "./features/order/Order"; 
 
-  return (
-    <li>
-      <img src={imageUrl} alt={name} />
-      <div>
-        <p>{name}</p>
-        <p>{ingredients.join(', ')}</p>
-        <div>
-          {!soldOut ? <p>{formatCurrency(unitPrice)}</p> : <p>Sold out</p>}
-        </div>
-      </div>
-    </li>
-  );
+const router = createBrowserRouter([
+  { path: '/', element: <Home /> },
+  { path: '/menu', element: <Menu /> },
+  { path: '/cart', element: <Cart /> },
+  { path: '/order/new', element: <CreateOrder /> },
+  { path: '/order/:orderId', element: <Order /> }
+]);
+
+function App() {
+  return <RouterProvider router={router} />;
 }
 
-export default MenuItem;
+export default App;
