@@ -1,9 +1,11 @@
+import { getMenu } from "../../services/apiRestaurant";
 function Menu() {
   return <h1>Menu</h1>;
 }
 
-function loader(){
-  
+export async function Loader(){
+  const menu = await getMenu();
+  return menu;
 }
 
 export default Menu;
