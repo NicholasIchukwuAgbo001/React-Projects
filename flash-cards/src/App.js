@@ -23,7 +23,7 @@ const questions = [
     answer: "JSX"
   },
   {
-    id: 1297,
+    id: 1297, 
     question: "How to pass data from parent to child components?",
     answer: "Props"
   },
