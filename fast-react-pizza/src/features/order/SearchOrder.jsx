@@ -3,14 +3,17 @@ import { useState } from "react";
 function SearchOrder() {
     const [query, setQuery] = useState("")
 
-    function handleSearch(e) {
+    function HandleSubmit(e) {
         e.preventDefault();
     }
 
   return (
-    <form className="onClick={handleSearch}">
-        <input type="text"  placeholder='Search Order Number' value={query}
-        onChange={(e) => setQuery(e.target.value)}
+    <form onSubmit={HandleSubmit}>
+        <input 
+            type="text"  
+            placeholder='Search Order Number' 
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
         />
     </form>
   )
