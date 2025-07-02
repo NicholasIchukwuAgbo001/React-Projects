@@ -1,6 +1,6 @@
 const Username = () => {
   return (
-    <div>
+    <div className="text-sm font-semibold">
       NIKO
     </div>
   )
