@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {Form, useActionData, useNavigation} from 'react-router-dom';
 import {createOrder} from "../../services/apiRestaurant"
 import { redirect } from "react-router-dom";
