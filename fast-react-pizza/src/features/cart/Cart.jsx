@@ -29,7 +29,7 @@ function Cart() {
 
   return (
     <div>
-      <LinkButton to="/menu">Back to menu</LinkButton>
+      <LinkButton to="/menu">Back to menu567</LinkButton>
 
       <h2>Your cart, %NAME%</h2>
 
