@@ -83,8 +83,7 @@ function CreateOrder() {
             type="checkbox"
             name="priority"
             id="priority"
-            // value={withPriority}
-            // onChange={(e) => setWithPriority(e.target.checked)}
+
           />
           <label htmlFor="priority" className="font-medium">
             Want to yo give your order priority?
