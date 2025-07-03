@@ -1,7 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const LinkButton = ({ to, children }) => {
+  const navigate = useNavigate();
+
+  if(to==='-1') return <button onClick={() => navigate(-1)}>{children}</button>
+  
   return (
     <Link 
       to={to} 
