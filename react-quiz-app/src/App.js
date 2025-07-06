@@ -8,7 +8,10 @@ import Question from "./Question";
 
 const initialState = {
   questions: [],
-  status: 'loading'
+
+  //'loading', 'active', 'ready', 'active', 'finished'
+  status: 'loading',
+  index: 0,
 };
 
 const reducer = (state, action) => {
