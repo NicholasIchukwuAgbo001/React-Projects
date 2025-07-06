@@ -80,6 +80,7 @@ const numQuestion = questions.length;
         {status === 'ready' && <StartScreen numQuestion={numQuestion} dispatch={dispatch}/>}
         {status === "active" && <Question  question={questions[index]} dispatch={dispatch} answer={answer} />}
       </Main>
+      <NextButton dispatch={dispatch} />
     </div>
   );
 }
