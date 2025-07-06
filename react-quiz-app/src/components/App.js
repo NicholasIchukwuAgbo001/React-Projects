@@ -60,7 +60,7 @@ const numQuestion = questions.length;
         {status === 'loading' && <Loader />}
         {status === 'error' && <Error />}
         {status === 'ready' && <StartScreen numQuestion={numQuestion} dispatch={dispatch}/>}
-        {status === "active" && <Question  question={questions [index]}/>}
+        {status === "active" && <Question  question={questions[index]}/>}
       </Main>
     </div>
   );
