@@ -24,6 +24,11 @@ const reducer = (state, action) => {
         ...state,
         status: 'error'
       };
+    case 'start':
+      return {
+        ...state,
+        status: "active"
+      };
     default:
       return state;
   }
@@ -51,7 +56,7 @@ const numQuestion = questions.length;
       <Main>
         {status === 'loading' && <Loader />}
         {status === 'error' && <Error />}
-        {status === 'ready' && <StartScreen numQuestion={numQuestion}/>}
+        {status === 'ready' && <StartScreen numQuestion={numQuestion} dispatch={dispatch}/>}
         {status === "active" && <Question />}
       </Main>
     </div>
