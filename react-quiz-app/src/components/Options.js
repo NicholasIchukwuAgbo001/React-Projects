@@ -1,15 +1,31 @@
 const Options = ({ question, dispatch, answer }) => {
+  const hasAnswered = answer !== null;
+
   return (
     <div className="options">
-      {question.options.map((option, index) => (
-        <button
-          className={`btn btn-option ${index === answer ? "answer" : ""} ${index === question.correctOption ? "correct" : "wrong"}`}
-          key={option}
-          onClick={() => dispatch({ type: 'newAnswr', payload: index })}
-        >
-          {option}
-        </button>
-      ))}
+      {question.options.map((option, index) => {
+        const isSelected = index === answer;
+        const isCorrect = index === question.correctOption;
+
+        let className = "btn btn-option";
+
+        if (hasAnswered) {
+          if (isSelected) className += " answer";
+          if (isCorrect) className += " correct";
+          else if (isSelected && !isCorrect) className += " wrong";
+        }
+
+        return (
+          <button
+            key={option}
+            className={className}
+            onClick={() => dispatch({ type: 'newAnswer', payload: index })}
+            disabled={hasAnswered}
+          >
+            {option}
+          </button>
+        );
+      })}
     </div>
   );
 };
