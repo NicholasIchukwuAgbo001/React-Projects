@@ -1,9 +1,17 @@
-const Question = () => {
+const Question = ({ question }) => {
   return (
     <div>
-      sdfghj
-    </div>
-  )
-}
+      <h4>{question.question}</h4>
 
-export default Question
+      <div className="options">
+        {question.options.map(option => (
+          <button className="btn btn-option" key={option}>
+            {option}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Question;
