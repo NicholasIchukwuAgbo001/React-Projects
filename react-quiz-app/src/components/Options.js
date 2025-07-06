@@ -1,13 +1,17 @@
-const Options = ({question}) => {
+const Options = ({ question, dispatch, answer }) => {
   return (
     <div className="options">
-    {question.options.map(option => (
-        <button className="btn btn-option" key={option}>
-        {option}
+      {question.options.map((option, index) => (
+        <button
+          className={`btn btn-option ${index === answer ? "answer" : ""} ${index === question.correctOption ? "correct" : "wrong"}`}
+          key={option}
+          onClick={() => dispatch({ type: 'newAnswr', payload: index })}
+        >
+          {option}
         </button>
-    ))}
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Options
+export default Options;
