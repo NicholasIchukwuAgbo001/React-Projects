@@ -5,6 +5,7 @@ import Loader from "./Loader";
 import Error from "./Error";
 import StartScreen from "./StartScreen";
 import Question from "./Question";
+import NextButton from "./NextButton";
 
 const initialState = {
   questions: [],
@@ -48,7 +49,7 @@ const reducer = (state, action) => {
     case 'nextQuestion':
       return{
         ...state,
-        index: state.index + 1,
+        index: state.index + 1, answer: null,
       }
     default:
       return state;
@@ -80,7 +81,7 @@ const numQuestion = questions.length;
         {status === 'ready' && <StartScreen numQuestion={numQuestion} dispatch={dispatch}/>}
         {status === "active" && <Question  question={questions[index]} dispatch={dispatch} answer={answer} />}
       </Main>
-      <NextButton dispatch={dispatch} />
+      <NextButton dispatch={dispatch} answer={answer} />
     </div>
   );
 }
