@@ -6,7 +6,7 @@ import Counter from "../features/count/Counter";
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Counter />,
+        element: <Counter />
     },
     {
         path: "/signup",
