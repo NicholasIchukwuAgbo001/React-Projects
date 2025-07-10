@@ -8,7 +8,7 @@ const Counter = () => {
 
   return (
 <div className="flex flex-col items-center gap-6 p-8">
-  <div className="flex items-center gap-4">
+  <div className="flex gap-4">
     <button 
       className="bg-red-400 hover:bg-red-500 text-white font-bold px-4 py-2 rounded transition"
       onClick={() => dispatch(decrement())}
