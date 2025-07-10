@@ -1,8 +1,13 @@
 const Login = () => {
+
   return (
-    <form className="max-w-sm mx-auto mt-10 p-6 bg-white shadow-md rounded-lg space-y-6">
+    <form
+      className="max-w-md mx-auto mt-10 p-6 bg-white shadow-md rounded-lg space-y-6"
+    >
       <div>
-        <label htmlFor="firstName" className="block mb-1 font-medium text-gray-700">First Name</label>
+        <label htmlFor="firstName" className="block mb-1 font-medium text-gray-700">
+          First Name
+        </label>
         <input
           id="firstName"
           type="text"
@@ -12,7 +17,9 @@ const Login = () => {
       </div>
 
       <div>
-        <label htmlFor="password" className="block mb-1 font-medium text-gray-700">Password</label>
+        <label htmlFor="password" className="block mb-1 font-medium text-gray-700">
+          Password
+        </label>
         <input
           id="password"
           type="password"
@@ -23,7 +30,7 @@ const Login = () => {
 
       <button
         type="submit"
-        className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded transition"
+        className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded transition"
       >
         Login
       </button>
