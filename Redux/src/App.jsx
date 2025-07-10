@@ -1,8 +1,10 @@
+import Counter from "./features/count/Counter"
+
 const App = () => {
   return (
-    <div>
-      Hello Vite
-    </div>
+    <>
+     <Counter />
+    </>
   )
 }
 
