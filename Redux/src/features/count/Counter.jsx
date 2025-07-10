@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { increment, decrement, reset } from "./CounterSlice";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -30,6 +31,9 @@ const Counter = () => {
       >
         Reset
       </button>
+
+      <Link to="/login">Login</Link>
+      <Link to="/signup">Login</Link>
     </div>
   );
 };
