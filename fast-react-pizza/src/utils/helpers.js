@@ -1,7 +1,8 @@
 export function formatCurrency(value) {
-  return new Intl.NumberFormat("en", {
+  return new Intl.NumberFormat("en-NG", {
     style: "currency",
-    currency: "EUR",
+    currency: "NGN",
+    minimumFractionDigits: 2,
   }).format(value);
 }
 

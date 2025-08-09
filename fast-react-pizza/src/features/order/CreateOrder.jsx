@@ -6,7 +6,6 @@ import EmptyCart from '../cart/EmptyCart';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart, getCart, getTotalCartPrice } from '../cart/cartSlice';
 import store from '../../store';
-import { formatCurrency } from '../../utils/helpers';
 import { fetchAddress } from '../user/userSlice';
 
 // https://uibakery.io/regex-library/phone-number
@@ -14,6 +13,9 @@ const isValidPhone = (str) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
     str
   );
+
+// Helper to format in Naira
+const formatNaira = (value) => `₦${value.toLocaleString()}`;
 
 function CreateOrder() {
   const [withPriority, setWithPriority] = useState(false);
@@ -43,7 +45,6 @@ function CreateOrder() {
     <div className="px-4 py-6">
       <h2 className="mb-8 text-xl font-semibold">Ready to order? Let's go!</h2>
 
-      {/* <Form method="POST" action="/order/new"> */}
       <Form method="POST">
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
           <label className="sm:basis-40">First Name</label>
@@ -112,7 +113,7 @@ function CreateOrder() {
             onChange={(e) => setWithPriority(e.target.checked)}
           />
           <label htmlFor="priority" className="font-medium">
-            Want to yo give your order priority?
+            Want to give your order priority?
           </label>
         </div>
 
@@ -131,7 +132,7 @@ function CreateOrder() {
           <Button disabled={isSubmitting || isLoadingAddress} type="primary">
             {isSubmitting
               ? 'Placing order....'
-              : `Order now from ${formatCurrency(totalPrice)}`}
+              : `Order now from ${formatNaira(totalPrice)}`}
           </Button>
         </div>
       </Form>
@@ -158,12 +159,8 @@ export async function action({ request }) {
 
   if (Object.keys(errors).length > 0) return errors;
 
-  // If everything is okay, create new order and redirect
   const newOrder = await createOrder(order);
-
-  // Do NOT overuse
   store.dispatch(clearCart());
-
   return redirect(`/order/${newOrder.id}`);
 }
 
